@@ -24,13 +24,21 @@ class Teensy(object):
     def __init__(self, dev='/dev/ttyACM0'):
         super(Teensy, self).__init__()
         self.dev = dev
+        try:
+            self.ser = serial.Serial(self.dev)
+        except:
+            print('dev init error, please reinit by Teensy(dev)')
+
+    def __call__(self, dev):
+        self.dev = dev
         self.ser = serial.Serial(self.dev)
 
     def TTL(self, x):
         '''
         generate a pulse with x (microseconds)
         '''
-        self.ser.write(b'{}\n'.format(x))
+        cmd = '{}\n'.format(x)
+        self.ser.write(cmd.encode())
 
 #------------------------------------------------------------------------------
 # Simple FIFO for regular real-time input (scalar, vector, matrix or tensor)

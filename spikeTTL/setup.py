@@ -19,8 +19,20 @@ Links:
 ---------
 * `Github <https://github.com/chongxi/spikeTTL>`_
 """
+import os
+from os import path as op
+from warnings import warn
 
-from setuptools import setup, find_packages
+import setuptools
+from distutils.core import setup
+version = "0.1.0"
+
+def package_tree(pkgroot):
+    path = os.path.dirname(__file__)
+    subdirs = [os.path.relpath(i[0], path).replace(os.path.sep, '.')
+               for i in os.walk(os.path.join(path, pkgroot))
+               if '__init__.py' in i[2]]
+    return subdirs
 
 requirements = ['Click>=6.0', ]
 
@@ -53,7 +65,7 @@ setup(
     include_package_data=True,
     keywords='spikeTTL',
     name='spikeTTL',
-    packages=find_packages(include=['spikeTTL']),
+    packages=package_tree('spikeTTL'),
     setup_requires=setup_requirements,
     test_suite='tests',
     tests_require=test_requirements,
