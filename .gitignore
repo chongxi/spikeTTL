@@ -1,3 +1,32 @@
+# general
+.DS_Store
+*/.DS_Store
+build/*
+dist/*
+*.swp
+*.swo
+
+# python
+*.pyc
+*egg-info
+*.py[cod]
+__pycache__/
+
+# jupyter notebook
+.ipynb_checkpoints
+*/.ipynb_checkpoints
+
+# IDE
+.idea
+.vscode
+.vim
+
+# personal 
+spiketag_test_data/*
+
+# tmux
+*.log
+
 # Build and Release Folders
 bin-debug/
 bin-release/
