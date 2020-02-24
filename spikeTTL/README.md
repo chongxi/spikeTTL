@@ -6,9 +6,6 @@ Tools for a teensy to generate flexible width TTL according to detected spike pa
 
 - [Intallation](#installation)
 - [Usage](#usage)
-- [TODO](#todo)
-- [Contributing](#contributing)
-- [Credits](#credits)
 
 ## Installation
 
